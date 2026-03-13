@@ -22,7 +22,7 @@ Class Filme
     }
 }
 
-$filme = new Filme("joao", 1000);
+$filme = new Filme("Toy Story", 1000);
 $filme -> incrementarSaldo(100);
 
 echo"{$filme -> saldo}"
