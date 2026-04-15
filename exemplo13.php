@@ -6,8 +6,8 @@ class Conta
 
     function __construct($numero, $saldo)
     {
-        $this->$numero = $numero;
-        $this->$saldo = $saldo;
+        $this->numero = $numero;
+        $this->saldo = $saldo;
     }
 
     function creditar($credito)
@@ -38,7 +38,15 @@ class Conta
 class Poupanca extends Conta
 {
 
-    public $juros = 0.05;
+    public $juros;
+
+    function __construct($numero, $saldo, $juros)
+    {
+        $this->numero = $numero;
+        $this->saldo = $saldo;
+        $this->juros = $juros;
+
+    }
 
     function atualizaJuros()
     {
@@ -54,14 +62,14 @@ class Poupanca extends Conta
 $conta = new Conta( 1, 150);
 $conta -> creditar(50);
 $conta -> debitar(50);
-echo "Saldo da conta $conta->numero é igual a: $conta->saldo";
+echo "Saldo da conta {$conta->numero} é igual a: {$conta->saldo}";
 
-$poupanca = new Poupanca(2, 150);
+$poupanca = new Poupanca(2, 150, 0.10);
 $poupanca -> creditar(50);
 $poupanca -> creditar(100);
 $poupanca-> atualizaJuros();
 
-echo "Saldo da conta $poupanca->numero é igual a: $poupanca->saldo";
+echo "Saldo da conta {$poupanca->numero} é igual a: {$poupanca->saldo}";
 
 
 
