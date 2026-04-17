@@ -1,27 +1,30 @@
 <?php
-class Carro {
+class Carro
+{
     // 🚩 RISCO: Atributo público permite valores ilegais
     private $modelo;
     private $velocidade;
 
-    public function __construct($modelo, $velocidade) {
+    public function __construct($modelo, $velocidade)
+    {
         $this->modelo = $modelo;
         $this->velocidade = $velocidade;
     }
-    public function getVelocidade (){
+    public function getVelocidade()
+    {
         return $this->velocidade;
     }
-    public function getModelo (){
+    public function getModelo()
+    {
         return $this->modelo;
     }
-    public function SetVelocidade($novaVelocidade){
-        if($novaVelocidade >= 0 && $novaVelocidade < 201){
+    public function SetVelocidade($novaVelocidade)
+    {
+        if ($novaVelocidade >= 0 && $novaVelocidade < 201) {
             $this->velocidade = $novaVelocidade;
-        }else{
-            echo "ERRO: velocimetro ultrapassa o limite<br>";
+        } else {
+            $this->velocidade = 'ERRO: VELOCIDADE IMPRÓPRIA';
         }
-        
-        
     }
 }
 
@@ -29,10 +32,13 @@ class Carro {
 $meuCarro = new Carro("Senai-Mobile", 0);
 
 // O desastre: alteração direta sem validação
-$meuCarro-> SetVelocidade(200); // Carro andando no tempo?
+$meuCarro->SetVelocidade(190); // Carro andando no tempo?
 
 
 
 echo "Modelo: " . $meuCarro->getModelo() . "<br>";
-echo "Velocidade atual: " . $meuCarro->getVelocidade() . " km/h";
-?>
+if ($meuCarro->getVelocidade() == "ERRO: VELOCIDADE IMPRÓPRIA") {
+    echo'' . $meuCarro->getVelocidade();
+} else {
+   echo "Velocidade atual: " . $meuCarro->getVelocidade() . " km/h";
+};
