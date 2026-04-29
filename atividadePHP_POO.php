@@ -22,8 +22,10 @@ class Carro
     {
         if ($novaVelocidade >= 0 && $novaVelocidade < 201) {
             $this->velocidade = $novaVelocidade;
+            echo "Modelo: " . $this->getModelo() . "<br>";
+            echo "Velocidade atual: " . $this->getVelocidade() . " km/h";
         } else {
-            $this->velocidade = 'ERRO: VELOCIDADE IMPRÓPRIA';
+            echo 'ERRO: VELOCIDADE IMPRÓPRIA';
         }
     }
 }
@@ -32,13 +34,4 @@ class Carro
 $meuCarro = new Carro("Senai-Mobile", 0);
 
 // O desastre: alteração direta sem validação
-$meuCarro->SetVelocidade(190); // Carro andando no tempo?
-
-
-
-echo "Modelo: " . $meuCarro->getModelo() . "<br>";
-if ($meuCarro->getVelocidade() == "ERRO: VELOCIDADE IMPRÓPRIA") {
-    echo'' . $meuCarro->getVelocidade();
-} else {
-   echo "Velocidade atual: " . $meuCarro->getVelocidade() . " km/h";
-};
+$meuCarro->SetVelocidade(200); // Carro andando no tempo?
