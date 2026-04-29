@@ -7,7 +7,7 @@ interface INotificador{
 class NotificadorEmail implements INotificador {
 public function enviar($destinatario, $mensagem){
 echo"Email Enviado Para: {$destinatario}. <br>
-     Assunto: {$mensagem}";
+     Assunto: {$mensagem} <br><br>";
 }
 }
 
@@ -15,7 +15,7 @@ echo"Email Enviado Para: {$destinatario}. <br>
 class NotificadorSMS implements INotificador{
 public function enviar($destinatario, $mensagem){
 echo"SMS Enviado Para: {$destinatario}. <br>
-     Assunto: {$mensagem}";
+     Assunto: {$mensagem} <br><br>";
 }
 }
 
@@ -23,7 +23,7 @@ echo"SMS Enviado Para: {$destinatario}. <br>
 class NotificadorWhatsapp implements INotificador{
 public function enviar($destinatario, $mensagem){
 echo"Whatsapp Enviado Para: {$destinatario}. <br>
-     Assunto: {$mensagem}";
+     Assunto: {$mensagem} <br><br>";
 }
 }
 
@@ -46,4 +46,8 @@ class SistemaDeNotificacoes {
 $sistemaEmail = new SistemaDeNotificacoes(new NotificadorEmail());
 $sistemaSMS = new SistemaDeNotificacoes(new NotificadorSMS());
 $sistemaWhatsapp = new SistemaDeNotificacoes(new NotificadorWhatsapp());
+
+$sistemaEmail->notificarUsuario("Joao@email.com", "Seu Pedido Foi Enviado");
+$sistemaSMS->notificarUsuario("17997243667", "Seu Pedido Foi Enviado");
+$sistemaWhatsapp->notificarUsuario("Miguel Teodoro", "Seu Pedido Foi Enviado");
 ?>
